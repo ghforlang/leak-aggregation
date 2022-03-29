@@ -50,6 +50,10 @@ public class SampleApplicationTest {
 
     @Test
     public void testLeak(){
+        // 漏洞位置：
+        // org.springframework.cloud.function.context.config.RoutingFunction.route
+        // org.springframework.cloud.function.context.config.RoutingFunction.functionFromExpression
+        // org.springframework.expression.spel.support.ReflectiveMethodExecutor.execute
         FunctionCatalog functionCatalog = this.configureCatalog();
         Function function = functionCatalog.lookup(RoutingFunction.FUNCTION_NAME);
         Message<String> message = MessageBuilder.withPayload("hello")
@@ -58,7 +62,6 @@ public class SampleApplicationTest {
                 .build();
         try {
             function.apply(message);
-//            fail();
         }
         catch (Exception e) {
             System.out.println("EL1005E: Type cannot be found 'java.lang.Runtime'");
