@@ -3,3 +3,6 @@ curl -H "Content-Type: text/plain" localhost:9999/upperCase -d '{"value": "hello
 
 
 curl -H "Content-Type: text/plain" localhost:8080/upperCaseMessage -d '{"value": "hello foobar"}'
+
+
+2、直接跑单测漏洞即可复现
