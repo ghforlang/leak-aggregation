@@ -18,6 +18,7 @@
     <modules>
         <module>leak-spring-cloud-function</module>
         <module>leak-spring-cloud-gateway</module>
+        <module>leak-spring-2022-22965</module>
     </modules>
 
     <properties>
